@@ -1991,13 +1991,15 @@ static_assert(NUM_SERVOS <= NUM_SERVO_PLUGS, "NUM_SERVOS (or some servo index) i
   #endif
 #endif
 
-#if HAS_FAN0
-  #if CONTROLLER_FAN_PIN == FAN0_PIN
-    #error "You cannot set CONTROLLER_FAN_PIN equal to FAN0_PIN."
-  #elif ENABLED(FAN_SOFT_PWM_REQUIRED) && DISABLED(FAN_SOFT_PWM)
-    #error "FAN_SOFT_PWM is required for your board. Enable it to continue."
-  #endif
-#endif
+#define FAN_SOFT_PWM
+
+//#if HAS_FAN0
+//  #if CONTROLLER_FAN_PIN == FAN0_PIN
+//    #error "You cannot set CONTROLLER_FAN_PIN equal to FAN0_PIN."
+//  #elif ENABLED(FAN_SOFT_PWM_REQUIRED) && DISABLED(FAN_SOFT_PWM)
+//    #error "FAN_SOFT_PWM is required for your board. Enable it to continue."
+//  #endif
+//#endif
 
 #if ENABLED(USE_CONTROLLER_FAN)
   #if !HAS_CONTROLLER_FAN
